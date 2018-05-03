@@ -1,0 +1,51 @@
+{% extends 'users/dashboard/user-dashboard.twig' %}
+{% block contents %}
+  <div class="breadcrumb text-left">
+   <h4 style="color:white">RINGKASAN</h4>
+</div>  
+
+<div class="row  text-center ringkasan-row">
+  <div class="col-sm-4 ringkasan">
+    <h4 class="ringkasan-header">{{ campaign }}</h4>
+    <small class="ringkasan-small">campaign</small>
+  </div>
+  <div class="col-sm-4 ringkasan">
+    <h4 class="ringkasan-header" >{{ donasi }}</h4>
+    <small class="ringkasan-small">donasi</small>
+  </div>
+  <div class="col-sm-4 ringkasan">
+    <h4 class="ringkasan-header">{% if total_donasi != 0 %}{{ total_donasi }}{% else %}
+      0{% endif %} </h4>
+    <small class="ringkasan-small">total donasi</small>
+  </div>
+</div>
+
+<div class="breadcrumb text-left">
+   <h4 style="color:white">TOTAL DANA</h4>
+</div>  
+<div class="row ringkasan-row">
+  <div class="col-lg-12 ringkasan-col">
+  <div class="row">
+  <div class="col-sm-9">Total donasi terkumpul</div>
+  <div class="col-sm-1">Rp</div>
+  <div class="col-sm-2 text-right">{% if jumlah_donasi != 0 %}{{ jumlah_donasi }}{% else %}
+      0{% endif %} </div>
+  
+  </div> 
+
+   <div class="row">
+  <div class="col-sm-9">Biaya Administrasi</div>
+  <div class="col-sm-1">Rp</div>
+  <div class="col-sm-2 text-right">{{ administrasi }}</div>
+  </div>   
+  <hr style="border: 0.08em solid #76323f" >
+  <div class="row">
+  <div class="col-sm-9">Donasi yang bisa dicairkan</div>
+  <div class="col-sm-1">Rp</div>
+  <div class="col-sm-2 text-right">{{ dana_cair }}</div>
+  </div>
+
+  </div>
+</div>
+
+{% endblock %}

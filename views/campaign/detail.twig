@@ -1,0 +1,93 @@
+{% extends 'templates/default.twig'%}
+{% block css %}
+    <link rel="stylesheet" href="{{ base_url()}}/css/campaign-detail.css">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="campaign-title">
+       <p class="detail-title">{{ data.title }}</p>
+       <span class="detail-lokasi" ><i class="fa fa-map-marker"> {{ data.lokasi }} </i> &nbsp; <i class="fa fa-tag"> {{ data. category }}</i></span>
+    </div> 
+    <div class="row">
+        <div class="col-lg-7">
+            <figure class="figure">
+              <img src="{{base_url()}}/assets/images/image/{{ data.cover }}" class="figure-img img-fluid rounded" style="width: 150%" alt="cover">
+              <figcaption class="figure-caption">{{ data.deskripsi_singkat}}</figcaption>
+            </figure>
+        </div>
+        <div class="col-lg-4">
+
+            <div class="card" style="width: 100%;">
+                <div class="nominal">
+                     <p class="terkumpul" >  {{ jumlah_donasi}} </p>
+                    <p class="target" > Target {{ data.target_dana }} </p>
+                </div>
+                <div class="progress">
+                    <div class="progress">
+                      <div class="progress-bar" role="progressbar" aria-valuenow="90" style="width: {{ progress }}%" aria-valuemin="0" aria-valuemax="100">{% if progress < 100 %}{{ progress}} {% else %}
+                          100 {% endif %}%</div>
+                    </div>
+                </div>
+                <div class="deadline">
+                    <span><i class="fa fa-calendar">  {{ data.deadline }} Hari lagi</i></span>
+                </div>
+              <!-- <div class="card-body"> -->
+                <a href="{{ path_for('get-donasi', {'id': data.id })}}" class="btn btn-donasi">DONASI</a>
+              <!-- </div> -->
+            </div>
+        </div>
+    </div>
+    <div class="row detail-bawah">
+        <div class="col-lg-7">
+            <div class="deskripsi-lengkap">
+                {{ data.deskripsi_lengkap|raw }}
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card" style="width: 100%;">
+                <div class="donatur">
+                    <span>DONATUR ({{ jumlah_donatur }})</span>
+                </div>
+              <!--   <span class="urutan">Urutkan berdasarkan</span>
+            <ul class="nav nav-tabs tab-donatur" id="myTab" role="tablist"> -->
+              <!-- <li class=""> -->
+              <!-- </li> -->
+         <!--      <li class="nav-item nav-donatur">
+                <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">WAKTU</a>
+              </li>
+              <li class="nav-item nav-donatur">
+                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">JUMLAH</a>
+              </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+              <div class="tab-pane fade " id="home" role="tabpanel" aria-labelledby="home-tab">...</div>
+              <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">  -->
+                {% for donatur in donatur %}
+                    
+                 <div class="row">
+                    <div class="col-md-12 col-sm-6 donatur-list">
+                        <div class="card-style">
+                            <div class="media">
+                                <div class="media-left">
+                                    <img class="img-fluid" src="{{ base_url()}}/assets/images/avatar2.jpg">
+                                </div>
+                                <div class="media-body">
+                                    <a href="#"><span class="nama-donatur">{{ donatur.name}}</span></a><br>
+                                    <span class="nominal-donasi">{{ donatur.nominal }}</span> <br>
+                                    {% if donatur.komentar != null %}
+                                    <span class="komentar"><q>{{ donaatur.komentar }}</q></span><br>
+                                    {% endif %}
+                                    <small class="tanggal-donasi">{{ donatur.tanggal_donasi }}</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+                {% endfor %}
+</div>
+</div>
+</div>
+</div>    
+
+{% endblock %}

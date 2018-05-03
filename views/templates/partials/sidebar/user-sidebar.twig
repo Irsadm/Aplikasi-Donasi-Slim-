@@ -1,0 +1,47 @@
+<div id="app">
+  <nav class="navbar sidebar">
+    <div class="image" >
+     <div class="card text-center"  style="background-color: #c09f80" align="center">
+      <img class="img-fluid foto-profil"  title="UBAH FOTO" {% if login.foto_profil != null %} src=" {{ base_url()}}/assets/images/image/{{ login.foto_profil }}" {% else %} src="{{ base_url()}}/assets/images/avatar.png" {% endif %} alt="FOTO PROFIL">
+      <!-- <div class="card-body">
+        <h4 class="card-title">Card title</h4>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div> -->
+    </div>
+      <br>
+    <div class="btn username">
+    <p >{{ login.name }}</p>
+    </div>
+    <br>
+</div>
+    <ul class="nav flex-column" style="width:100%">
+      <li class="nav-item active">
+        <a class="nav-link" href="{{ path_for('user-dashboard')}}">RINGKASAN <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ path_for('user-campaign')}}">CAMPAIGN</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ path_for('user-donasi')}}">DONASI</a>
+      </li>
+      <li  class="nav-item">
+        <a class="nav-link"   href="{{ path_for('pengaturan')}}">PENGATURAN</a>
+<!--         <ul id="collapseOne" class="collapse " role="tabpanel" aria-labelledby="headingOne">
+              <li class="collapse show">
+                <a class="nav-link" href="#">GANTI PASSWORD</a>
+              </li>
+              <li class="collapse show">
+                <a class="nav-link" href="#">VERIFIKASI AKUN</a>
+              </li>
+              <li class="collapse show">
+                <a class="nav-link" href="#">EDIT DATA DIRI</a>
+              </li> 
+               <li class="collapse show">
+                <a class="nav-link" href="#">GANTI FOTO PROFIL</a>
+              </li>
+        </ul> -->
+      </li>
+    </ul>
+  </nav>
+    </div>

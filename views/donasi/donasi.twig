@@ -1,0 +1,124 @@
+{% extends 'templates/default.twig' %}
+{% block title %}DONASI{% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="{{ base_url()}}/css/donasi.css">
+
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-lg-8 donasi-col">
+        <div class="judul-donasi ">
+            <span>{{ data.title }} </span>        
+        </div>
+        </div>
+    </div>
+<br>
+    <div class="row justify-content-md-center body-donasi">
+     <div class="col-lg-8 donasi-col">
+
+       <form class="form-donasi align-self-center" action="{{ path_for('donasi')}}" method="post">
+           <div class="form-group row justify-content-md-center">
+            <!-- <label for="staticEmail" class="col-lg-2 col-form-label ">NAMA</label> -->
+
+            <div class="col-lg-4">
+                 <div class="input-group mb-2 mb-sm-0">
+                    <div class="input-group-addon">Rp</div>
+                    <input type="text"  name="nominal" class="form-control form-control-lg" value="{{ old.nominal }}"  autofocus placeholder="0">
+                  </div>
+                    <span><small><i>*silakan isi nominal donasi</i></small></span>
+                    <br>
+                    {% if errors.nominal %}
+                    <span style="color:#76323f; font-weight:normal; font-size:15px; text-align: left;" class="help-inline text-center">
+                    {{  errors.nominal | first}}
+                    </span>
+                   {% endif %}
+            </div>
+            <br>
+           </div>
+
+           <div class="form-group row justify-content-md-center">
+             <label for="staticEmail" class="col-lg-3 col-form-label ">NAMA</label>
+               <div class="col-lg-9">
+                 <input type="text"  name="name" class="form-control" {% if login != null %} value="{{ login.name }}" disabled {% endif %} >
+                 {% if errors.name %}
+                 <span style="color:#76323f; font-weight:normal; font-size:15px; text-align: left;" class="help-inline text-center">
+                 {{  errors.name | first}}
+                 </span>
+                 {% endif %}
+               </div>
+           </div>
+
+           <div class="form-group row justify-content-md-center">
+            <label for="staticEmail" class="col-lg-3 col-form-label ">EMAIL</label>
+              <div class="col-lg-9">
+                <input type="text"  name="email" class="form-control"{% if login != null %} value="{{ login.email }}" disabled {% endif %} >
+                {% if errors.email %}
+                <span style="color:#7 6323f; font-weight:normal; font-size:15px; text-align: left;" class="help-inline text-center">
+                {{  errors.email | first}}
+                </span>
+                {% endif %}
+              </div>
+           </div>
+
+           <div class="form-group row justify-content-md-center">
+             <label for="staticEmail" class="col-lg-3 col-form-label ">NO HANDPHONE</label>
+               <div class="col-lg-9">
+                 <input type="text"  name="phone" class="form-control"  value="{{ login.phone }}" >
+                {% if errors.phone %}
+                <span style="color:#76323f; font-weight:normal; font-size:15px; text-align: left;" class="help-inline text-center">
+                {{  errors.phone | first}}
+                </span>
+                {% endif %}
+               </div>
+           </div>
+
+           <div class="form-group row justify-content-md-center">
+             <label for="staticEmail" class="col-lg-3 col-form-label ">KOMENTAR</label>
+               <div class="col-lg-9">
+                 <textarea name="komentar" class="form-control" rows="3" cols="10"></textarea>
+               </div>
+           </div>
+        
+          <div class="form-group row justify-content-md-center">
+            <label for="staticEmail" class="col-lg-3 col-form-label ">PILIH BANK</label>
+              <div class="col-lg-9">
+                <select class="form-control" id="exampleFormControlSelect2">
+                  <option>BNI SYARIAH</option>
+                  <option>SYARIAH MANDIRI</option>
+                  <option>BRI SYARIAH</option>
+                 </select>
+              </div>
+           </div>
+
+          <input type="hidden" name="campaign_id"  value="{{ data.id }}">
+          
+          <div class="form-group row  justify-content-end">
+            <div class="col-lg-3" style="margin-top: 1%;">
+              <button class="btn-lanjut ">LANJUT</button>
+            </div>
+          </div>
+
+          
+        </form>
+
+        </div>
+    </div>
+
+</div>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="{{ base_url()}}/js/jquery.masknumber.js"></script>
+<script type="text/javascript">
+        $(document).ready(function ($) {
+
+            $('[name=nominal]').maskNumber({thousands: '.', integer: true});
+            $('[name=currency-data-attributes]').maskNumber();
+            $('[name=currency-configuration]').maskNumber({decimal: '_', thousands: '*'});
+            $('[name=integer-default]').maskNumber({integer: true});
+            $('[name=integer-data-attribute]').maskNumber({integer: true});
+            $('[name=integer-configuration]').maskNumber({integer: true, thousands: '_'});
+        });
+  </script>
+
+{% endblock %}

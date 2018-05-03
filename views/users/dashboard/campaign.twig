@@ -1,0 +1,78 @@
+{% extends 'users/dashboard/user-dashboard.twig'  %}
+
+{% block contents %}
+<div class="breadcrumb text-left">
+  <a href="{{ path_for('new-campaign')}}" ><button class="btn btn-right" style="float:right; position:relative">CAMPAIGN BARU</button></a>
+   <h4 style="color:white">CAMPAIGN</h4>
+</div>  
+<!-- <div class="bg-info clearfix">
+  <button type="button" class="btn btn-secondary float-left">Example Button floated left</button>
+  <button type="button" class="btn btn-secondary float-right">Example Button floated right</button>
+</div> -->
+<div class="row">
+  {% for key, data in data %}
+    <div class="col-md-4 dahsboard-campaign">
+      <div class="card user-campaign">
+        <div class="card-header campaign-header">
+          <span class="campaign-header-text">{{ data.title}}</span>
+        </div>
+        <a href="{{ path_for('detail-campaign', {'id': data.id })}}" style="text-decoration: none">
+        <div class="image campaign-body" style="width: 100%">
+           <img class="card-img-top" src="{{ base_url()}}/assets/images/new_image_resize/{{ data.cover }}" alt="Card image cap">
+        </div>
+        <div class="card-body" style="background-color: #565656; color: #c09f80">
+           <small style="color: white"><em><b>TERKUMPUL</b></em></small>
+           <h3 class="card-title">{% if data.total_donasi != null %}{{ data.total_donasi }}{% else %}
+               Rp 0 {% endif %} </h3>
+           <small style="color: white"><em><b>TARGET</b></em></small>
+           <h3 class="card-title">{{ data.target_dana }}</h3>
+    <!-- <p class="card-text">{{ data.deskripsi_singkat }}</p> -->
+            <div class="row" style="background-color: #565656;border-radius: 0.2em">
+              <div class="col-lg-6">
+                <div class="card" style="border: none; background-color: #565656; color: #565656">
+                  <div class="card-body text-center">
+                    <h4 style="color: #c09f80"><b>{% if data.donatur != null %}{{ data.donatur }} {% else %}
+                        0{% endif %}</b></h4>
+                     <small style="color: white"><em><b>Donatur</b></em></small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="card" style="border: none; background-color: #565656; color: #565656">
+                  <div class="card-body text-center">
+                    {% for no, remain in remaining %}
+                    {% if key == no %}
+                    <h4 style="color: #c09f80"><b>{{ remain }}</b></h4>
+                    {% endif %}
+                    {% endfor %}
+                     <small style="color: white"><em><b>Hari lagi</b></em></small>
+                  </div>
+              </div>
+        </div>
+        </div>
+        </div>
+          <div class="card-footer text-muted" style="background-color: #76323f  ">
+          </div>
+        </div>
+  </div>
+  {% endfor %}
+ </a>
+</div>
+    <div class="row  justify-content-center">
+        <center>
+        <div class="col-lg-12 justify-content-center ">
+            <nav aria-label="Page navigation example">
+              <ul class="pagination">
+                {% if pagination.current > 1 %}
+                <li class="page-item"><a class="page-link"  title="Sebelumnya" href="{{ base_url()}}/user/campaign/all?page={{ pagination.current - 1 }}">«</a></li>
+                {% endif %}
+                <li class="page-item"><a class="page-link" href="#">{{ pagination.current }}</a></li>
+                {% if pagination.current < pagination.total_page  %}
+                <li class="page-item"><a class="page-link"  title="Berikutnya" href="{{ base_url()}}/user/campaign/all?page={{ pagination.current + 1 }}">»</a></li>
+                {% endif %}
+              </ul>
+            </nav>
+        </div>
+    </center>
+    </div>
+{% endblock %}

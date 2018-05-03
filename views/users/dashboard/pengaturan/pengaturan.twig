@@ -1,0 +1,47 @@
+{% extends 'users/dashboard/user-dashboard.twig'  %}
+
+{% block contents %}
+  <div class="breadcrumb text-left">
+   <h4 style="color:white">PENGATURAN</h4>
+</div>  
+<!-- <div class="bg-info clearfix">
+  <button type="button" class="btn btn-secondary float-left">Example Button floated left</button>
+  <button type="button" class="btn btn-secondary float-right">Example Button floated right</button>
+</div> -->
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a {% if errors.password != null or errors.new_password != null  or errors.confirm_password != null %} class="nav-link pengaturan-tab"  {% else %} class="nav-link active pengaturan-tab"  {% endif %} style="border:none; border-radius: 0.2rem" id="profil-tab" data-toggle="tab" href="#profil" role="tab" aria-controls="profil" aria-selected="true">PROFIL</a>
+  </li>
+  <li class="nav-item">
+    <a {% if errors.password != null or errors.new_password != null  or errors.confirm_password != null %} class="nav-link active pengaturan-tab"  {% else %} class="nav-link  pengaturan-tab"  {% endif %} id="password-tab" data-toggle="tab" href="#password" role="tab" aria-controls="password" aria-selected="false">UBAH PASSWORD</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link pengaturan-tab" id="foto-tab" data-toggle="tab" href="#foto" role="tab" aria-controls="foto" aria-selected="false">UBAH FOTO PROFIL</a>
+  </li>
+   <li class="nav-item">
+    <a class="nav-link pengaturan-tab" id="verifikasi-tab" data-toggle="tab" href="#verifikasi" role="tab" aria-controls="verifikasi" aria-selected="false">VERIFIKASI AKUN</a>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+<div {% if errors.password != null or errors.new_password != null  or errors.confirm_password != null %} class="tab-pane fade" {% else %} class="tab-pane fade show active" {% endif %}  id="profil" role="tabpanel" aria-labelledby="profil-tab">
+  {% block profil %}
+  {% include 'users/dashboard/pengaturan/profil.twig' %}
+  {% endblock %}
+  </div>
+  <div {% if errors.password != null or errors.new_password != null  or errors.confirm_password != null %} class="tab-pane fade show active" {% else %} class="tab-pane fade" {% endif %}  id="password" role="tabpanel" aria-labelledby="password-tab">
+  {% block password %}
+  {% include 'users/dashboard/pengaturan/password.twig' %}
+  {% endblock %}
+  </div>
+  <div class="tab-pane fade" id="foto" role="tabpanel" aria-labelledby="foto-tab">
+  {% block foto %}
+  {% include 'users/dashboard/pengaturan/foto.twig' %}
+  {% endblock %}
+  </div>
+  <div class="tab-pane fade" id="verifikasi" role="tabpanel" aria-labelledby="verifikasi-tab">
+  {% block verifikasi %}
+  {% include 'users/dashboard/pengaturan/verifikasi.twig' %}
+  {% endblock %}
+  </div>
+</div>
+{% endblock %}

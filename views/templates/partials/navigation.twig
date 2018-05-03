@@ -1,0 +1,86 @@
+{% block script %}
+  <style>
+  .profile-img {
+    margin-top: -1px;
+    margin-right: -px;
+    float: left;
+    background: url(example.jpg) 50% 50% no-repeat;  50% 50% centers image in div 
+    background-size: auto 100%; /* Interchange this value depending on prefering width vs. height */
+    width: 43px;
+    height: 43px;
+    border-radius: 50%;
+}
+
+.navitem input[type=text]  {
+    width: 300px;
+    box-sizing: border-box;
+    border:0;
+    outline: none;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('https://www.w3schools.com/howto/searchicon.png');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    float:right;
+    width: 160%
+}
+
+.navitem input[type=text]:focus {
+    width: 100%;
+    border-top: 0;
+    border-right:0;
+    border-left:0;
+    border-bottom: 1px solid #ddd;
+}
+</style>
+{% endblock %}
+
+<nav class="navbar navbar-expand-lg navbar-light ">
+  <a class="navbar-brand title" href="#" style="color: #76323f; font-weight:bold">Do-donasi</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item navitem">
+        <a class="nav-link " href="{{ path_for('explore')}}" style="color: #565656; font-weight:bold; font-size: 17px">DONASI <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item navitem">
+        <a class="nav-link" href="{{ path_for('new-campaign')}}" style="color: #565656; font-weight:bold; font-size: 17px ">GALANG DANA</a>
+      </li>    
+      <li class="nav-item navitem" >
+            <form class="form-inline my-2 my-lg-0" style="margin-right:2%" action="{{ path_for('search')}}">
+            <div class="input-group">
+              <input class="form-control mr-sm-2 search" type="text" placeholder="" name="search" size="70" aria-label="CARI" aria-describedby="basic-addon2">
+              <!-- <input type="submit"> -->
+         <!--      <button class="btn my-2 my-sm-0 btn-nav input-group-append" id="basic-addon2" type="submit"><span class=" fa fa-search"></span></button> -->
+            </div>
+          </form>
+      </li>
+    </ul>
+     {% if login %}
+      <ul class="navbar-nav  navbar-toggler-right" style="margin-right:9%">
+        <li class="nav-item dropdown navbar-toggler-right">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="text-transform:capitalize">
+           {{ login.name }}
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="margin-top: 16% !important">
+            <a class="dropdown-item" href="{{ path_for('user-dashboard')}}"><span class="fa fa-user"></span> Dashboard</a>
+            <a class="dropdown-item" href="{{ path_for('user-logout')}}"><span class="fa fa-sign-out"></span> Logout</a>
+          </div>
+        </li>
+            <li class="navbar-toggler-right">
+                <div >
+                <img class="profile-img" src="{{ base_url() }}/assets/images/avatar.jpg" alt="Avatar" >
+                </div>
+            </li>
+      </ul>
+      {% else %}
+          <a class="navbar-toggler-right" style="margin-right:9%; text-decoration:none; color:black" href="{{ path_for('login')}}"><span class="fa fa-sign-in"></span> Login</a>
+      {% endif %}
+  </div>
+</nav>

@@ -1,0 +1,38 @@
+{% extends 'admin/index.twig' %}
+{% block css %}
+<link rel="stylesheet" href="{{ base_url() }}/admin-css/custom/view.css">
+{% endblock %}
+{% block main %}
+ <div class="container" style="margin-left:17%">
+    <div class="campaign-title">
+       <p class="detail-title">{{ data.title }}</p>
+       <span class="detail-lokasi" ><i class="fa fa-map-marker"> {{ data.lokasi }} </i> &nbsp; <i class="fa fa-tag"> {{ data. category }}</i></span>
+       <br>
+       <span class="detail-lokasi" >Target Dana : {{ data.target_dana }} </i> &nbsp;  Deadline : {{ data. deadline }}</i></span>
+    </div> 
+    <div class="row">
+        <div class="col-lg-7">
+            <figure class="figure">
+              <img src="{{base_url()}}/assets/images/image/{{ data.cover }}" class="img-responsive" style="width: 150%" alt="cover">
+              <figcaption class="figure-caption">{{ data.deskripsi_singkat}}</figcaption>
+            </figure>
+        </div>
+         <div class="col-lg-7">
+            <div class="deskripsi-lengkap">
+                {{ data.deskripsi_lengkap|raw }}
+            </div>
+            <div class="row" style="margin-top: 1%">
+                <div class="col-lg-6" >
+                    <a href="{{ path_for('campaign.request')}}"><button class="btn-warning" style="border-radius:6px; padding: 5px 12px;">Back</button></a>
+                </div>
+                <div class="col-lg-6 text-right" >
+                    <form action="{{ path_for('campaign.verify', {'id': data.id })}}" method="post">
+                    <button class="btn-primary" style="border-radius:6px; padding: 5px 12px;">Verify</button>
+                    </form>
+                </div>
+
+            </div>
+        </div> 
+    </div>
+</div>  
+{% endblock %}

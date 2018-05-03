@@ -1,0 +1,72 @@
+{% extends 'campaign/dashboard/campaign-dashboard.twig'  %}
+
+{% block contents %}
+<div class="breadcrumb text-left">
+   <h4 style="color:white">TOTAL DONASI : {% if  total_donasi != null %} <b>{{ total_donasi }}</b>{% else %}  <b>Rp 0</b
+       {% endif %}</h4>
+</div>  
+<!-- <div class="bg-info clearfix">
+  <button type="button" class="btn btn-secondary float-left">Example Button floated left</button>
+  <button type="button" class="btn btn-secondary float-right">Example Button floated right</button>
+</div> -->
+<!-- <table class="table table-responsive">
+  <thead class="thead" style="background-color: #565656; color: white;  border-color: none !;">
+    <tr>
+      <th>No</th>
+      <th>Judul Campaign</th>
+      <th>Nominal Donasi</th>
+      <th>Tanggal Donasi</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@Otto</td>
+      <td>Lajang</td>
+    </tr>
+  </tbody>
+</table> -->
+{% set no = 1 %}
+<div class="row ringkasan-row">
+  <div class="col-lg-12">
+    <table class="table table tabel-donasi" style="width: 100%">
+      <tr>
+        <th>No</th>
+        <th>Donatur</th>
+        <th >Nominal Donasi (Rp)</th>
+        <th>Tanggal Donasi</th>
+        <th>Status</th>
+      </tr>
+      {% for key, data in donatur %}
+      <tr>
+        <td>{{ key + 1 + (pagination.perpage * (pagination.current - 1 ))}}</td>
+        <td>{{ data.name}}</td>
+        <td class="text-right">{{ data.nominal}}</td>
+        <td>{{ data.tanggal_donasi }}</td>
+        <td>{% if data.status == 0 %}Dalam proses {% endif %}{% if data.status == 1 %}Berhasil{% endif %}
+            {% if data.status == 2 %}Dibatalkan{% endif %}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    <center>
+    <div class="col-lg-12" style="align: center; margin-left: 45%; margin-top: -15%">
+            <nav aria-label="Page navigation example">
+              <ul class="pagination">
+                {% if pagination.current > 1 %}
+                <li class="page-item"><a class="page-link"  title="Sebelumnya" href="{{ base_url()}}/user/campaign/{{ id }}/donasi?page={{ pagination.current - 1 }}">«</a></li>
+                {% endif %}
+                <li class="page-item"><a class="page-link" href="#">{{ pagination.current }}</a></li>
+                {% if pagination.current < pagination.total_page  %}
+                <li class="page-item"><a class="page-link"  title="Berikutnya" href="{{ base_url()}}/user/campaign/{{ id }}/donasi?page={{ pagination.current + 1 }}">»</a></li>
+                {% endif %}
+              </ul>
+            </nav>
+        </div>
+      </center>
+    </div>
+    </div>
+</div>
+{% endblock %}

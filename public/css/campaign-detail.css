@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css?family=Prata');
+@import url('https://fonts.googleapis.com/css?family=Bitter');
+
+.campaign-title {
+    padding-top: 1%;
+    margin-bottom: 2.5%;
+}
+
+.detail-title {
+    /*padding: 1em;*/
+    padding-left: 0;
+    padding-top: 1%;
+    margin-bottom: 0.5%;
+    font-size: 200%;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #76323f;
+
+}
+.card {
+    padding: 1em;
+    background-color: #76323f;
+}
+
+.figure {
+    width:100%;
+}
+
+/*img .rounded {
+    width: 150%;
+}*/
+
+.detail-lokasi {
+    margin-bottom: 3%;
+    color: #565656;
+    font-size: 100%;
+    /*font-weight: 1000;*/
+    font-family: 'Bitter', serif;
+    text-transform: uppercase;
+}
+
+.terkumpul {
+    font-family: 'Bitter', serif;
+    font-size: 200%;
+    text-align: center;
+    font-weight: 550;
+    color: #c09f80;
+    border: 1px solid #c09f80;
+    border-radius: 0.2em;
+    font-stretch: extra-condensed;
+}
+
+.target {
+    font-size: 100%;
+    font-weight: 550;
+    text-align: center;
+    color: white;
+    font-family: 'Bitter', serif;
+}
+
+.progress {
+    width: 100%;
+    background-color: white;
+    height: 220%;
+}
+
+.progress-bar {
+    background-color: #c09f80;
+    font-family: 'Bitter', serif;
+    color: white;
+}
+
+.deadline {
+    margin-top: 2%;
+    color: #c09f80;
+    text-align: center;
+    font-size: 95%;
+}
+
+
+.btn-donasi {
+    /*padding: 1em;*/
+    margin-top: 3%;
+    background-color: #c09f80;
+    width: 100%;
+    font-size: 100%;
+    font-stretch: condensed;
+    text-decoration: none;
+    letter-spacing: 0.5em;
+    color: #565656;
+    font-weight: 700;
+}
+
+.btn-donasi:hover {
+    /*padding: 1em;*/
+    margin-top: 3%;
+    background-color: #565656;
+    width: 100%;
+    font-size: 100%;
+    font-stretch: condensed;
+    text-decoration: none;
+    letter-spacing: 0.5em;
+    color: #c09f80; 
+    font-weight: 700;
+}
+
+.detail-bawah {
+    margin-top: 2%;
+}
+
+.deskripsi-lengkap {
+    margin-bottom: 2%;
+    background-color: #c09f80;
+    color: black;
+    padding: 3%;
+    font-size: 1.2rem;
+    border-radius: 0.2em;
+
+}
+
+.donatur {
+    font-size: 120%;
+    padding: 2%;
+    color: white;
+    font-weight: 600;
+    padding-left: 0;
+    letter-spacing: 0.08em;
+}
+
+.donatur-list {
+    margin-top:  2%;
+    /*width: 100%;*/
+}
+.media {
+    width: 100%;
+}
+.card-style {
+    display: block;
+    background-color: #fff;
+    height: 100%;
+    width: 100%;
+    padding: 2%;
+    margin-top: 2%;
+    box-sizing: : border-box;
+    /*cursor: pointer;*/
+    border-radius: 0.2em;
+}
+
+.media-left {
+    margin-top: 2%;
+    width: 20%;
+    height: 3.8rem;
+    background-color: #565656;
+    border-radius: 0.2em;
+}
+
+.media-body {
+    margin-left: 1%;
+}
+
+.card-img {
+    width:  100%;
+
+
+}
+
+.tab-donatur {
+    border: none;
+}
+
+.btn-tab-donatur {
+    margin-top: 18%;
+}
+
+.nav-donatur {
+    margin: 1%;
+    border-radius: 0.2em !important;
+    /*width: 20%;*/
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    text-align: center;
+}
+
+.urutan {
+    color: white;
+    font-style: italic;
+
+}
+
+.nav-donatur a:link {
+    /*margin: 1%;*/
+    border-radius: 0.2em !important;
+    /*width: 20%;*/
+    color: white;
+    text-decoration: none;
+    /*font-weight: 600;*/
+
+}
+
+.nama-donatur {
+    font-weight: bold;
+    color: #76323f;
+    text-decoration: none;
+    text-transform: capitalize;
+
+
+}
+
+.nominal-donasi {
+    font-weight: bold;
+    color: #565656;
+}
+
+.media-body a {
+    text-decoration: none;
+}
+.komentar {
+    font-style: italic;
+    color: muted;
+    font-size:  90%;
+
+}
+

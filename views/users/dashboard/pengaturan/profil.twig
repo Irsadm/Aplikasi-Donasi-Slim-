@@ -1,0 +1,55 @@
+{% block profil %}
+      <form action="{{ path_for('edit-profil')}}" method="post" accept-charset="utf-8" class="form-group">
+         <div class="row">
+           <div class="col-sm-12 col-md-4">
+             <span class="text-profil">NAMA</span>
+           </div>
+           <div class="col-sm-12 col-md-6">
+             <input class="form-control" type="text" name="name"  value="{{ data.name }}" disabled>
+           </div>
+         </div>
+
+         <div class="row">
+           <div class="col-sm-12 col-md-4">
+             <span class="text-profil">EMAIL</span>
+           </div>
+           <div class="col-sm-12 col-md-6">
+             <input class="form-control" type="text" name="email"  value="{{ data.email }}" disabled>
+           </div>
+         </div>
+
+         <div class="row">
+           <div class="col-sm-12 col-md-4">
+             <span class="text-profil">NO HANDPHONE</span>
+           </div>
+           <div class="col-sm-12 col-md-6">
+             <input class="form-control" type="text" name="phone"  value="{{ data.phone }}">
+             {% if errors.phone %}
+                 <span style="color:##76323f; font-weight: normal; font-size:15px; text-align: center;" class="help-inline">{{errors.phone | first}}</span>
+             {% endif %}
+           </div>
+         </div>      
+
+         <div class="row">
+           <div class="col-sm-12 col-md-4">
+             <span class="text-profil">BIOGRAFI</span>
+           </div>
+           <div class="col-sm-12 col-md-6">
+             <textarea name="biografi"  class="form-control" >{{ data.biografi }}</textarea>
+           </div>
+         </div>
+          
+         <div class="col-sm-12 col-md-10 text-right ">
+            <button type="submit"  class="btn btn-pengaturan">SIMPAN</button>
+         </div>
+      </form>
+<script type="text/javascript" >
+  document.getElementById("file").onchange = function () {
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      document.getElementById("image").src = e.target.result;
+    }
+    reader.readAsDataURL(this.files[0]);
+}
+</script>
+{% endblock %}

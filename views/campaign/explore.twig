@@ -1,0 +1,65 @@
+{% extends 'templates/default.twig' %}
+{% block title %}EXPLORE{% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="{{ base_url()}}/css/explore.css" />
+{% endblock %}
+{% block  content %}
+  <div class="container">
+    <div class="row">
+            
+        {% for key, data in data %}
+            <a href="{{ path_for('detail-campaign', {'id':data.id})}}">
+             <div class="col-sm-6 col-md-4 col-lg-4 mt-4">
+                <div class="card">
+                    <img class="card-img-top" src="{{base_url()}}/assets/images/new_image_resize/{{ data.cover }}">
+                    <div class="card-block" style="height: 14rem">
+                        <h4 class="card-title">{{ data.title }}</h4>
+                        <div class="meta">
+                            <a>{{ data.campaigner }} {% if data.verified == true %}<i title="Pengguna sudah melakukan verifikasi" class="fa fa-check-circle"></i>{% endif %}</a>
+                        </div>
+                        <div class="card-text text-justify">
+                            {{ data.deskripsi_singkat}}...<br><a style="color:#c09f80" href="{{ path_for('detail-campaign', {'id': data.id})}}"><i>lihat selengkapnya</i></a>
+                        </div> 
+                    </div>
+                    <div class="card-footer">
+                        <div class="progress">
+                            {% set progresValue = data.total_donasi / data.target_dana * 100 %}
+                              <div class="progress-bar" role="progressbar" style="width: {{ progresValue }}%; {% if progresValue < 5 %} color: black !important; {% endif %}" aria-valuenow="" aria-valuemin="0" aria-valuemax="100%"> {% if progresValue <= 100 %}{{ progresValue }}% {% else %}
+                                  100 %{% endif %}</div>
+                              <br>
+                        </div>
+                        {% for no, deadline in deadline %}
+                        {% if no == key %}
+                        <small><i class="fa fa-calendar-times-o"></i> {{ deadline }} Hari lagi</small>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+          </a>
+        {% endfor %}
+
+    </div>
+    <div class="row  justify-content-center">
+        <center>
+        <div class="col-lg-12 justify-content-center ">
+            <nav aria-label="Page navigation example">
+              <ul class="pagination">
+                {% if pagination.current > 1 %}
+                <li class="page-item"><a class="page-link"  title="Sebelumnya" href="{{ base_url()}}/explore?page={{ pagination.current - 1 }}">«</a></li>
+                {% endif %}
+                <li class="page-item"><a class="page-link" href="#">{{ pagination.current }}</a></li>
+                {% if pagination.current < pagination.total_page  %}
+                <li class="page-item"><a class="page-link"  title="Berikutnya" href="{{ base_url()}}/explore?page={{ pagination.current + 1 }}">»</a></li>
+                {% endif %}
+              </ul>
+            </nav>
+        </div>
+    </center>
+    </div>
+   
+</div>
+
+
+{% endblock %}
+

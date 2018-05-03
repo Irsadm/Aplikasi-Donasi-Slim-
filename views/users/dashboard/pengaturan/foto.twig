@@ -1,0 +1,34 @@
+{% block foto %}
+<form  action="{{ path_for('edit-foto')}}" method="post" enctype="multipart/form-data" style="margin-top: 2%">
+    <div class="row text-center" >
+        <div class="col-lg-5">
+            <div class="card text-center" style="background-color:">
+            <!-- <div class="image-0" style="width: 100%"> -->
+              <label for="x">
+              <img id="image"class="img-fluid" style="width:100%; margin-top: 1%" {% if login.foto_profil != null %}src="{{ base_url()}}/assets/images/image/{{ login.foto_profil }}"  {% else %} src="{{ base_url()}}/assets/images/avatar.png" {% endif %} alt="FOTO {{ login.name}}" title="KLIK UNTUK GANTI FOTO">
+              </label>
+                {% if errors.foto %}
+                 <span style="color:#76323f; font-weight:normal; font-size:15px; text-align: left;" class="help-inline text-center">
+                 {{  errors.foto | first}}
+                 </span>
+                 {% endif %}
+                <input type="file" class="form-control" name="image" style="visibility:hidden;" id="x" >
+                 <button type="submit"  style="margin-left: 30%; width: 40%; margin-bottom: 3%; word-spacing: 0.6em" class="btn btn-pengaturan">SIMPAN</button>
+            <!-- </div> -->
+           </div>
+        </div>
+<!--         <div class="col-lg-3">
+                 <button type="submit"   class="btn btn-pengaturan" style="width: 100%; margin-top: 80%">SIMPAN</button>
+        </div> -->
+    </div>
+</form>
+<script type="text/javascript" >
+  document.getElementById("x").onchange = function () {
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      document.getElementById("image").src = e.target.result;
+    }
+    reader.readAsDataURL(this.files[0]);
+}
+</script>
+{% endblock %}

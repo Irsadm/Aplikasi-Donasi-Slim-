@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Login | Admin</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!-- VENDOR CSS -->
+    <link rel="stylesheet" href="{{ base_url() }}/admin-css/custom/login.css">
+ <!--Bootstrap CSS  -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ base_url()}}/css/nav.css" />
+    <link rel="stylesheet" href="{{ base_url()}}/css/glyphicons.css" />
+    <link rel="stylesheet" href="{{ base_url()}}/css/all.css" />
+    <link rel="stylesheet" href="{{ base_url()}}/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="{{ base_url()}}/font-awesome/css/font-awesome.min.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote-bs4.css" rel="stylesheet">
+</head>
+<body>
+  
+<div class="container">
+    <div class="wrapper">
+        <form method="post" action="{{ path_for('admin.login')}}">
+          <div class="form-group">
+            {% if errors %}
+                <span style="color:red; font-weight:normal; font-size:15px; text-align: center;" class="help-inline">{{ errors }}</span>
+            {% endif %}
+            <!-- <label for="exampleInputEmail1">Email address</label> -->
+            <input type="email" class="form-control"  name="email" placeholder="Email">
+          </div>
+          <div class="form-group">
+            <!-- <label for="exampleInputPassword1">Password</label> -->
+            <input type="password" class="form-control" name="password" placeholder="Password">
+          </div>
+          <div class="form-check">
+          </div>
+          <center>
+          <button type="submit" class="btn btn-primary">Login</button>
+          </center>
+        </form>
+    </div>
+</div>
+</body>
+</html>

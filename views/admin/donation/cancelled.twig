@@ -1,0 +1,97 @@
+{% extends 'admin/index.twig' %}
+{% block main %}
+{% include 'templates/partials/flash.twig' %}
+  <h2 style="color:black; margin-top:-1%; margin-bottom:2%"><b>Paid Donation </b> </h2>
+{% set no = 1 %}
+<div class="row ringkasan-row">
+  <div class="col-lg-12">
+    <table id="example" class="table table-striped table-bordered" >
+      <tr>
+        <th class="text-center">No</th>
+        <th>Donation ID</th>
+        <th>Campaign</th>
+        <th>Amount</th>
+
+      </tr>
+      {% for key, data in data %}
+      <tr>
+        <td class="text-center">{{ key + 1 + (pagination.perpage * (pagination.current - 1 ))}}</td>
+        <td class="text-left">{{ data.code}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+        <td class="text-left">{{ data.title }}</td>
+        <td class="text-right">{{ data.nominal }}</td>
+
+      </tr>
+      
+      <!-- Modal 1 -->
+      <div class="modal fade" id="modal1{{ data.id }}" tabindex="-2" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="exampleModalLabel">Konfirmasi Hapus User</h4>
+              </div>
+              <div class="modal-body">
+                <h4>Apakah Anda yakin ingin menghapus <span style="text-transform:capitalize">{{ data.name }}</span> ? </h4>
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
+                <a href="{{ path_for('user.delete', {'id': data.id})}}"><button type="button" class="btn btn-primary">Ya</button></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal 2 -->
+        <div class="modal fade" id="modal2{{ data.id }}" tabindex="-2" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="exampleModalLabel">Verifikasi</h4>
+              </div>
+              <div class="modal-body">
+                <!-- <h4>Apakah Anda yakin menyetujui <span style="text-transform:capitalize">{{ data.name }}</span> ? </h4> -->
+                <center>
+                <img src="{{ base_url() }}/assets/images/new_image_resize/{{ data.foto_verifikasi }}" class="img-responsive" alt="Foto Tidak Tersedia">
+                </center>
+              </div>
+                <form method="post" action="{{ path_for('user.verify', {'id': data.id})}}">
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
+               <button type="submit" class="btn btn-primary">Verifikasi</button>
+              </div>
+                </form>
+            </div>
+          </div>
+        </div>
+
+      {% endfor %}
+     </table>
+     <center>
+         <div class="col-lg-12" style="">
+            <nav aria-label="Page navigation example">
+              <ul class="pagination">
+                {% if pagination.current > 1 %}
+                <li class="page-item"><a class="page-link"  title="Sebelumnya" href="{{ base_url()}}/secret/admin/donations/paid?page={{ pagination.current - 1 }}">«</a></li>
+                {% endif %}
+                <li class="page-item"><a class="page-link" href="#">{{ pagination.current }}</a></li>
+                {% if pagination.current < pagination.total_page  %}
+                <li class="page-item"><a class="page-link"  title="Berikutnya" href="{{ base_url()}}/secret/admin/donations/paid?page={{ pagination.current + 1 }}">»</a></li>
+                {% endif %}
+              </ul>
+            </nav>
+        </div> 
+      </center>
+  </div>
+</div>
+
+    
+
+<script>
+</script>
+{% endblock %}

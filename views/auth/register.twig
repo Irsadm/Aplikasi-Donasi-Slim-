@@ -1,0 +1,79 @@
+{% include 'templates/default.twig' %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{ base_url()}}/css/login.css">
+{% endblock %}
+{% block content %}
+
+  <div class="container-fluid">
+    
+{% include 'templates/partials/flash.twig' %}
+    <div class="wrapper">
+    <form class="form-signin" action="{{path_for('post-register')}}" method="post">
+      <!-- <h2 class="form-signin-heading text-center" ><span class="do-donasi" style="margin-top:-3rem">DO-DONASI</span></h2> -->
+       <div class="text-center">
+        <p>MARI BERGABUNG, BERBAGI KEBAHAGIAAN</p>
+      </div>
+          <!-- <center> -->
+                <div class="control-group  {{ errors.name ? 'has-error' : '' }}">
+                    <div class="controls">
+                        <div class="main_input_box">
+                            <span class="add-on bg_lg"><i class="icon-user"> </i></span>
+                            <input name="name" type="text"
+                            value="{{ old.name}}" placeholder="Nama" class="form-control"  />
+                            {% if errors.name %}
+                            <span style="color:#76323f; font-weight:normal; font-size:15px; text-align: left;" class="help-inline text-center">{{  errors.name | first}}</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="control-group {{ errors.email ? 'has-error' : '' }}">
+                    <div class="controls">
+                        <div class="main_input_box">
+                            <span class="add-on bg_lo"><i class="icon-envelope"></i></span>
+                            <input name="email" type="text"
+                            value="{{ old.email}}" placeholder="Email" class="form-control" />
+                            {% if errors.email %}
+                            <span style="color:#76323f; font-weight:normal; font-size:15px; text-align: left;" class="help-inline">{{errors.email | first}}</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="control-group  {{ errors.password ? 'has-error' : '' }}">
+                    <div class="controls">
+                        <div class="main_input_box">
+                            <span class="add-on bg_ly"><i class="icon-lock"></i></span>
+                            <input name="password" type="password"
+                            value="{{ old.password}}" placeholder="Password"  class="form-control" />
+                            {% if errors.password %}
+                            <span style="color:#76323f; font-weight:normal; font-size:15px; text-align: left;" class="help-inline">{{errors.password | first}}</span>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+               <div class="control-group  {{ errors.confirm_password ? 'has-error' : '' }}">
+                    <div class="controls">
+                        <div class="main_input_box">
+                            <span class="add-on bg_ly"><i class="icon-lock"></i></span>
+                            <input name="confirm_password" type="password"
+                            value="{{ old.confirm_password}}" placeholder="Confirm Password"  class="form-control" />
+                            {% if errors.confirm_password %}
+                            <span style="color:#76323f; font-weight:normal; font-size:15px; text-align: left;" class="help-inline">{{errors.confirm_password | first}}</span>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+<!--       <input type="text" class="form-control" name="nama" placeholder="Nama" required="" autofocus="" />
+      <br>
+       <input type="email" class="form-control" name="email" placeholder="Email" required="" autofocus="" />
+      <br>
+      
+      <input type="password" class="form-control" name="password" placeholder="Password" required=""/> -->
+      <br>
+      <input class="btn-masuk" type="submit" style="color:white; " name="submit"  value="DAFTAR">
+    </form>
+  </div>
+ </div>
+ {% endblock %}

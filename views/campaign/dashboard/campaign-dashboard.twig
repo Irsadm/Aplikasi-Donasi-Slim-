@@ -1,0 +1,30 @@
+{% extends 'templates/default.twig' %}
+{% block css %}
+<!-- <link rel="stylesheet" type="text/css" href="{{ base_url()}}/css/sidebar.css"> -->
+<link rel="stylesheet" type="text/css" href="{{ base_url()}}/css/pengaturan.css">
+<link rel="stylesheet" type="text/css" href="{{ base_url()}}/css/dashboard.css">
+<link rel="stylesheet" type="text/css" href="{{ base_url()}}/css/ringkasan.css">
+<link rel="stylesheet" type="text/css" href="{{ base_url()}}/css/campaign-sidebar.css">
+{% endblock %}
+
+{% block content %}
+        <div style=" margin-left: 2%; "  class="container">
+            {% include 'templates/partials/flash.twig' %}
+            <div class="row" style="margin-left: 1.2%">
+                <div class="col-3-md col-6-sm campaign-dash ">
+                    <span class="">{{ data.title }}</span>
+                    <p class="campaign-tag"> <i class="fa fa-map-marker"> </i> {{ data.lokasi }} &nbsp; &nbsp;<i class="fa fa-tag"> </i> {{ data.category}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div style="padding-left:25px; float:left; margin-top: 2%" class="col-md-4 hidden-sm-down">
+                    {% include 'templates/partials/sidebar/campaign-sidebar.twig' %}
+                </div>
+                <div style="padding:0px; float:right; margin-top: 2%" class="col-md-8 col-sm-1" >
+                  {% block contents %}
+                  {% endblock %}
+                </div>
+            </div>
+        </div>
+{% endblock %}
+

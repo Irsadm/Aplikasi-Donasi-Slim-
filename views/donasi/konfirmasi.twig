@@ -1,0 +1,72 @@
+{% extends 'templates/default.twig' %}
+{% block title %}KONIRMASI TRANSFER{% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="{{ base_url()}}/css/donasi.css">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-lg-8 donasi-col">
+        <div class="judul-donasi ">
+            <span>KONFIRMASI TRANSFER DONASI</span>      
+        </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-md-center body-donasi" style="border-radius: 1em">
+      <div class="col-lg-8">
+        <form class="form-konfirmasi" method="post"  action="{{ path_for('post-new-campaign')}}" enctype="multipart/form-data">
+            <div class="form-group row justify-content-md-center">
+            <br/>
+            </div>
+
+            <div class="form-group row justify-content-md-center">
+              <label for="staticEmail" class="col-lg-4 col-form-label ">ID DONASI</label>
+                <div class="col-lg-8">
+                  <input type="text"  value="{{ old.title}}" name="title" autofocus class="form-control" id="staticEmail" >
+                    {% if errors.title %}
+                    <span style="color:#76323f; font-weight:normal; font-size:15px; text-align: left;" class="help-inline text-center">{{  errors.title | first}}
+                    </span>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="form-group row justify-content-md-center">
+              <label for="staticEmail" class="col-lg-4 col-form-label ">BUKTI TRANSFER</label>
+                <div class="col-lg-8">
+                  <label for="file" style="width:100%">
+                  <img  id="image" src="{{ base_url()}}/assets/images/thumbnail.png" alt="GAMBAR SAMPUL"  style="width:100%" class="img-thumbnail">
+                  </label>
+                    <input type="file" class="form-control" name="image" style="visibility:hidden;" id="file" >
+                    {% if errors.cover %}
+                     <span style="color:#76323f; font-weight:normal; font-size:15px; text-align: left;" class="help-inline text-center">
+                     {{  errors.cover | first}}
+                     </span>
+                     {% endif %}
+                 </div>
+            </div>
+
+            <div class="form-group row justify-content-end">
+              <div class="col-lg-2" style="padding:0; margin-right: 2%; margin-top: -6%">
+                <button class="form-control btn-lanjut" style="height: 90% !important" name="submit" type="submit">LANJUT</button>
+              </div>
+            </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+
+<script type="text/javascript" >
+  document.getElementById("file").onchange = function () {
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      document.getElementById("image").src = e.target.result;
+    }
+    reader.readAsDataURL(this.files[0]);
+}
+</script>
+
+{% endblock %}

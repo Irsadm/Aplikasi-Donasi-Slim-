@@ -1,0 +1,34 @@
+{% block cover %}
+<form  action="{{ path_for('edit-cover', {'id': id })}}" method="post" enctype="multipart/form-data" style="margin-top: 2%">
+    <div class="row text-center" >
+        <div class="col-lg-8">
+            <div class="card text-center" style="background-color:">
+            <!-- <div class="image-0" style="width: 100%"> -->
+              <label for="file">
+              <img id="image"class="img-fluid " src="{{ base_url()}}/assets/images/image/{{ data.cover }}" alt="{{ data.title }}">
+              </label>
+                {% if errors.cover %}
+                 <span style="color:#76323f; font-weight:normal; font-size:15px; text-align: left;" class="help-inline text-center">
+                 {{  errors.cover | first}}
+                 </span>
+                 {% endif %}
+                <input type="file" class="form-control" name="image" style="visibility:hidden;" id="file" >
+                 <button type="submit"  style="margin-left: 55%; width: 40%; margin-bottom: 4%; word-spacing: 0.6em" class="btn btn-pengaturan">SIMPAN</button>
+            <!-- </div> -->
+           </div>
+        </div>
+<!--         <div class="col-lg-3">
+                 <button type="submit"   class="btn btn-pengaturan" style="width: 100%; margin-top: 80%">SIMPAN</button>
+        </div> -->
+    </div>
+</form>
+<script type="text/javascript" >
+  document.getElementById("file").onchange = function () {
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      document.getElementById("image").src = e.target.result;
+    }
+    reader.readAsDataURL(this.files[0]);
+}
+</script>
+{% endblock %}

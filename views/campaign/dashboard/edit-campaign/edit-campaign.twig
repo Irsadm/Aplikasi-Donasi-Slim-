@@ -1,0 +1,51 @@
+{% extends 'campaign/dashboard/campaign-dashboard.twig' %}
+{% block contents %}
+  <div class="breadcrumb text-left">
+   <h4 style="color:white">EDIT CAMPAIGN</h4>
+  </div>  
+<!-- <div class="bg-info clearfix">
+  <button type="button" class="btn btn-secondary float-left">Example Button floated left</button>
+  <button type="button" class="btn btn-secondary float-right">Example Button floated right</button>
+</div> -->
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a  {% if errors.cover %} class="nav-link pengaturan-tab" {% endif %} {% if errors.deadline %} class="nav-link pengaturan-tab"  {% else %} class="nav-link active pengaturan-tab"  {% endif %} style="border:none; border-radius: 0.2rem" id="deskripsi-tab" data-toggle="tab" href="#deskripsi" role="tab" aria-controls="deskripsi" aria-selected="true">EDIT DESKRIPSI</a>
+  </li>
+   <li class="nav-item">
+    <a {% if errors.deadline  %} class="nav-link active pengaturan-tab"  {% else %} class="nav-link  pengaturan-tab"  {% endif %} id="deadline-tab" data-toggle="tab" href="#deadline" role="tab" aria-controls="deadline" aria-selected="false">UBAH DEADLINE</a>
+  </li>
+
+<!--   <li class="nav-item">
+    <a class="nav-link pengaturan-tab" id="foto-tab" data-toggle="tab" href="#foto" role="tab" aria-controls="foto" aria-selected="false">UBAH FOTO deskripsi</a>
+  </li> -->
+    <li class="nav-item">
+    <a {% if errors.cover %} class="nav-link active pengaturan-tab" {% else %} class="nav-link pengaturan-tab" {% endif %} id="cover-tab" data-toggle="tab" href="#cover" role="tab" aria-controls="cover" aria-selected="false">UBAH COVER</a>
+  </li>
+
+</ul>
+
+<div class="tab-content" id="myTabContent">
+
+  <div {% if errors.cover %} class="tab-pane fade" {% endif %} {% if errors.deadline %} class="tab-pane fade" {% else %} class="tab-pane fade show active" {% endif %}  id="deskripsi" role="tabpanel" aria-labelledby="deskripsi-tab">
+  {% block deskripsi %}
+  {% include 'campaign/dashboard/edit-campaign/edit-deskripsi.twig' %}
+  {% endblock %}
+  </div>
+
+  <div {% if errors.deadline %} class="tab-pane fade show active" {% else %} class="tab-pane fade" {% endif %}  id="deadline" role="tabpanel" aria-labelledby="deadline-tab">
+  {% block deadline %}
+  {% include 'campaign/dashboard/edit-campaign/deadline.twig' %}
+  {% endblock %}
+  </div>
+
+  <div {% if errors.cover %} class="tab-pane fade show active" {% else %} class="tab-pane fade"{% endif %} id="cover" role="tabpanel" aria-labelledby="cover-tab">
+  <center>
+  {% block cover %}
+  {% include 'campaign/dashboard/edit-campaign/cover.twig' %}
+  {% endblock %}
+</center>
+  </div>
+
+</div>
+
+{% endblock %}

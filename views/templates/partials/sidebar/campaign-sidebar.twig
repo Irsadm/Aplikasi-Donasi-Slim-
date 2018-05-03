@@ -1,0 +1,39 @@
+<div class="card campaign-card" style="width: 90%">
+  <div class="card-header" style="background-color: #76323f"><br></div>
+  <img class="img-fluid" src="{{ base_url()}}/assets/images/new_image_resize/{{ data.cover }}" alt="CAMPAIGN COVER">
+  <div class="card-body body-sidebar">
+    <!-- <div id="app"> -->
+  <!-- <nav class="navbar campaign-sidebar "> -->
+    <br>
+    <ul class="nav flex-column" style="width:100%">
+      <li class="nav-item active">
+        <a class="nav-link dashboard-link" href="{{ path_for('detail-campaign', {'id': id })}}">RINGKASAN <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link dashboard-link" href="{{ path_for('donasi-campaign', {'id': id })}}">DONASI</a>
+      </li>
+      <li  class="nav-item">
+        <a class="nav-link dashboard-link"  href="{{ path_for('edit-campaign', {'id': id })}}">EDIT CAMPAIGN</a>
+<!--          <a class="nav-link dashboard-link" data-toggle="collapse"  href="{{ path_for('edit-campaign', {'id': id })}}" aria-expanded="false" aria-controls="collapseOne">EDIT CAMPAIGN</a> -->
+<!--         <ul id="collapseOne" class="collapse " role="tabpanel" aria-labelledby="headingOne">
+              <li class="collapse show">
+                <a class="nav-link" href="#">GANTI PASSWORD</a>
+              </li>
+              <li class="collapse show">
+                <a class="nav-link" href="#">VERIFIKASI AKUN</a>
+              </li>
+              <li class="collapse show">
+                <a class="nav-link" href="#">EDIT DATA DIRI</a>
+              </li> 
+               <li class="collapse show">
+                <a class="nav-link" href="#">GANTI FOTO PROFIL</a>
+              </li>
+        </ul> -->
+      </li>
+    </ul>
+  <!-- </nav> -->
+    <!-- </div> -->
+  </div>
+</div>
+
+

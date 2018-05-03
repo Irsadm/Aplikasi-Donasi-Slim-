@@ -1,0 +1,24 @@
+{
+    "autoload": {
+        "psr-4": {
+            "App\\":"src/"
+        }
+    },
+    "require":{
+        "slim/slim": "^3.8",
+        "slim/twig-view": "^2.2",
+        "twig/twig": "^2.0",
+        "vlucas/valitron": "^1.4",
+        "robmorgan/phinx": "^0.8.1",
+        "fzaninotto/faker": "^1.6",
+        "doctrine/dbal": "v2.5.5",
+        "slim/csrf": "^0.8.1",
+        "slim/flash": "^0.2.0",
+        "codeguy/upload": "dev-master",
+        "swiftmailer/swiftmailer": "^6.0",
+        "guzzlehttp/guzzle": "~6.0",
+        "league/flysystem": "^1.0"
+
+
+    }
+}

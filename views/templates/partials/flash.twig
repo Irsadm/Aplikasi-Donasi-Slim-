@@ -1,0 +1,48 @@
+{% if flash.getMessage('info') %}
+
+<center><div class="alert alert-info" role="alert">
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+		<span aria-hidden="true">&times;</span></button>
+		<!-- <span class="glyphicon glyphicon-bell"></span> -->
+		<strong> Info ! </strong> <i>Data tidak boleh kosong</i>
+		<!-- <span class="glyphicon glyphicon-bell"></center> -->
+			<strong>{{ flash.getMessage('info') | first }}</strong>
+		</div>
+
+		{% endif %}
+
+		{% if flash.getMessage('error') %}
+
+		<center><div class="alert alert-danger" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span></button>
+				<!-- <strong><span class="glyphicon glyphicon-remove"></span> -->
+					{{ flash.getMessage('error') | first }}
+					<!-- <span class="glyphicon glyphicon-remove"></span> -->
+				</strong>
+			</div>
+		</center>
+	{% endif %}
+
+	{% if flash.getMessage('warning') %}
+
+	<center> <div class="alert alert-warning alert-dismissible" style="font-weight: bold; background-color:#F6DDCC; color:#DC7633;  "role="alert">
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			<span aria-hidden="true">&times;</span></button>
+			<!-- <strong><span class="glyphicon glyphicon-warning-sign"></span></strong> -->
+				 {{ flash.getMessage('warning') | first }}
+		</div></center>
+
+	{% endif %}
+
+	{% if flash.getMessage('success') %}
+
+	<center><div class="alert alert-success" style="font-weight: bold; " role="alert">
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			<span aria-hidden="true">&times;</span></button>
+			<!-- <strong><span class="glyphicon glyphicon-check"></span></strong> -->
+			{{ flash.getMessage('success') | first }}
+
+			<!-- <strong><span class="glyphicon glyphicon-check"></strong> -->
+		</div></center>
+{% endif %}

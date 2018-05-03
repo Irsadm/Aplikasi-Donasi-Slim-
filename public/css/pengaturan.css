@@ -1,0 +1,157 @@
+.pengaturan-tab {
+    color: #76323f !important;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: 2%;
+
+    margin-right: 0.1rem;
+
+}
+
+.pengaturan-tab:hover {
+    /*color: white !important;*/
+    margin-right:0.1rem;
+    margin-left: 0.1rem;
+    font-weight: bold;
+    font-size: 1rem;
+    background-color: white;
+    border: none;
+    border-color: none;
+    height: 2.5rem;
+}
+
+
+.nav-link .active {
+    color: white !important;
+    font-weight: bold;
+    font-size: 1rem;
+    background-color: #c09f80;
+    border-color: none;
+}
+#profil {
+    margin-top: 1%;
+    box-sizing: border-box;
+}
+
+.form-control {
+    /*margin-top: 2%;*/
+}
+
+.col-md-4 {
+    margin-bottom: 2%;
+    
+}
+
+.text-profil {
+    font-size: 0.8 rem;
+    font-weight: bold;
+    color: #565656;
+}
+
+.btn-pengaturan {
+    background-color: #76323f;
+    margin-top: 1%;
+    color: #fff;
+    font-weight: bold;
+}
+
+.btn-pengaturan:hover {
+    background-color: #565656;
+    margin-top: 1%;
+    color: #c09f80;
+    font-weight: bold;
+}
+
+.dashboard-verifikasi {
+    margin-top: 1%;
+}
+
+.campaign-header {
+    background-color: #76323f;
+    text-align: center;
+    /*border-bottom: 0.3em solid #76323f;*/
+}
+
+/*.user-campaign {
+    border-bottom: 0.6em solid #76323f;
+}*/
+
+.campaign-header-text {
+    color: #c09f80;
+
+}
+
+.campaign-body {
+    border-bottom: 0.5em solid #76323f;
+
+}
+
+.btn-right {
+    margin-top: -0.7%;
+    border-radius: 0.2em;
+    background-color: white;
+    color: #76323f;
+    /*border: 1.2px solid white;*/
+    width: 18%;
+    word-wrap: break-word;
+    font-size: 90%;
+    font-weight: 600;
+}
+
+.btn-right:hover {
+    margin-top: -0.7%;
+    border-radius: 0.2em;
+    background-color: #76323f;
+    color: white;
+    border: 1.2px solid white;
+    width: 18%;
+    word-wrap: break-word;
+    font-size: 90%;
+    font-weight: 600;
+}
+
+.text-left a {
+    color: white;
+}
+
+.pagination {
+    margin-top: 20%;
+    /*background-color: white;*/
+    font-size: 130%;
+    /*font-weight: 700;*/
+    width: 120%;
+}
+
+.pagination>li>a,
+.pagination>li>span {
+ /*border-radius: 100% !important;*/
+ /*margin: 0 5px;*/
+ /*background-color: white;*/
+    /*font-size: 100%;*/
+    font-weight: bold;
+    color: #76323f;
+    text-decoration: none;
+    }
+
+.pagination>li>a:hover,
+.pagination>li>span:hover {
+ /*border-radius: 100% !important;*/
+ /*margin: 0 5px;*/
+ /*background-color: white;*/
+    /*font-size: 100%;*/
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    background-color: #76323f;
+}
+
+.page-item {
+    background-color: none !important;
+    /*margin-left: 2%;*/
+    height: 100%;
+}
+.page-link {
+    background-color: none;
+}
+
+.card 

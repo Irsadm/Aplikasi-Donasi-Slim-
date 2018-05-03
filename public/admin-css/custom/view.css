@@ -1,0 +1,14 @@
+.detail-title {
+    text-transform:uppercase;
+    color:black;
+    font-size:210%;
+    font-weight:bold;
+}
+
+.row {
+    margin-top: 2%;
+}
+
+.deskripsi-lengkap {
+    background-color: white;
+}

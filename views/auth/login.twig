@@ -1,0 +1,52 @@
+{% include 'templates/default.twig' %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{ base_url()}}/css/login.css">
+{% endblock %}
+{% block content %}
+
+  <div class="container-fluid">
+    
+{% include 'templates/partials/flash.twig' %}
+    <div class="wrapper">
+    <form class="form-signin" action="{{ path_for('post-login')}}" method="post">
+      <!-- <h3 class="form-signin-heading text-center"><b class="do-donasi">Do-donasi !</b></h3> -->
+      <div class="text-center">
+        <p>SILAKAN LOGIN UNTUK MENGAKSES SEMUA FITUR</p>
+      </div>
+       <div class="control-group {{ errors.email ? 'has-error' : '' }}">
+                    <div class="controls">
+                        <div class="main_input_box">
+                            <span class="add-on bg_lo"><i class="icon-envelope"></i></span>
+                            <input name="email" type="text"
+                            value="{{ old.email}}" placeholder="Email" autofocus class="form-control" />
+                            {% if errors.email %}
+                            <span style="color:##76323f; font-weight: normal; font-size:15px; text-align: center;" class="help-inline">{{errors.email | first}}</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="control-group  {{ errors.password ? 'has-error' : '' }}">
+                    <div class="controls">
+                        <div class="main_input_box">
+                            <span class="add-on bg_ly"><i class="icon-lock"></i></span>
+                            <input name="password" type="password"
+                            value="{{ old.password}}" placeholder="Password"  class="form-control" />
+                            {% if errors.password %}
+                            <span style="color:##76323f; font-weight:normal; font-size:15px; text-align: center;" class="help-inline">{{errors.password | first}}</span>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+      <input class="btn-masuk" type="submit" style="color:white;" value="MASUK">
+      <br>
+      <br>
+      <div class="text-center">
+      <a href="{{ path_for('forgot-password')}}" style="center; text-decoration:none; color: #565656">LUPA PASSWORD </a>
+      </div>   
+      <div class="text-center">
+      <a href="{{ path_for('register')}}" style="center; text-decoration:none; color: #565656">DAFTAR </a>
+      </div>
+    </form>
+  </div>
+{% endblock %}

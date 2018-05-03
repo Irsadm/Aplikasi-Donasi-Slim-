@@ -1,0 +1,24 @@
+{% block deadline %}
+      <form action="{{ path_for('edit-deadline', {'id': id})}}" method="post" >
+        <br>
+        <h6 style="color: #76323f; font-weight:bold"><em>DEADLINE : {{  data.deadline }}</em></h6>
+        <br>
+         <div class="row">
+           <!-- <div class="col-md-4">
+             <span class="text-profil">UBAH</span>
+           </div> -->
+           <div class="col-md-6">
+             <input class="form-control" type="date" name="deadline" >
+              {% if errors.deadline %}
+               <span style="color:#76323f; font-weight:normal; font-size:15px; text-align: left;" class="help-inline text-center">
+               {{  errors.deadline | first }}
+               </span>
+              {% endif %}
+           </div>
+         <div class="col-md-4 text-right " style="padding:0;">
+            <button type="submit"  class="btn btn-pengaturan">SIMPAN PERUBAHAN</button>
+         </div>
+         </div>
+           <br>
+      </form>
+{% endblock %}

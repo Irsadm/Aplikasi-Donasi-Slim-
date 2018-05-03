@@ -1,0 +1,52 @@
+.navbar {
+    background-color: white;
+    /*box-shadow: 0px 3px  #888888;*/
+    padding:0.5rem;
+
+}
+
+.btn-nav {
+    color:white;
+    border-style: : dashed;
+    border-color: white;
+    background-color: #76323f;
+}
+.btn-nav:hover {
+
+    color:  #76323f;
+    border-color: #76323f;
+    background-color: white;
+    border-radius: 0.2em;
+}
+
+.nav-list .nav-link {
+    color: black;
+}
+
+.nava {
+    font-size: 20px !important;
+}
+
+.navitem a:hover {
+    background-color: #76323f !important;
+    color: white !important;
+    border-radius: 0.2em;
+}
+
+footer {
+    display: block;
+    background-color: white;
+    height: 10%;
+    width: 100%;
+}
+
+.profile-img {
+    margin-top: -5px;
+    margin-right: 5px;
+    float: left;
+    /*background: url(example.jpg) 50% 50% no-repeat; /* 50% 50% centers image in div */*/
+    background-size: auto 100%; /* Interchange this value depending on prefering width vs. height */
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}

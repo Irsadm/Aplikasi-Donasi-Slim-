@@ -1,0 +1,22 @@
+{% extends 'admin/index.twig' %}
+{% block main %}
+    
+<!-- <div  class="container-fluid"> -->
+    <center>
+    <div class="row-fluid">
+        <div  class="span12">
+            <div  class="widget-box">
+                <div style="padding:80px;" class="widget-content">
+                    <div class="error_ex">
+                        <h1>404</h1>
+                        <h3>Opps, Halaman tidak ditemukan. &#9785;</h3>
+                        <!-- <a class="btn btn-primary btn-big"  href="{{ back }}"> -->
+                            <!-- <i class="fa fa-angle-double-left" aria-hidden="true">&nbsp&nbsp Kembali</i></a> -->
+                        <a href="{{path_for('dashboard') }}" class="btn btn-warning btn-big" style="color:white; border:none;">
+                            <i class="fa fa-home" aria-hidden="true">&nbsp&nbsp Beranda</i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

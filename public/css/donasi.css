@@ -1,0 +1,111 @@
+.judul-donasi {
+    text-align: center;
+    margin-top: 3%;
+    font-size: 190%;
+    font-weight: 600;
+    color: #76323f;
+    text-transform: uppercase;
+    /*max-width: 70%*/
+}
+
+.form-donasi {
+    margin-top: 4%;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+label {
+    font-weight: 600;
+    color: #565656;
+    font-size: 120%;
+}
+
+.nominal-donasi {
+    height: 150% !important;
+}
+
+.btn-lanjut {
+    width: 100%;
+    font-weight: 600;
+    color: white;
+    border-radius: 0.2em;
+    background-color: #76323f;
+    height: 150%;
+    border: none;
+    letter-spacing: 0.08rem;
+}
+
+.card {
+    padding: 3%;
+    margin-top: 5%;
+}
+@media min-width:  {
+    
+}
+.top {
+    margin-top: 8%;
+    margin-bottom: 0 !important;
+    border-top-left-radius: 0.2em;
+    border-top-right-radius: 0.2em;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+
+}
+
+.note-editor.note-frame {
+     border: 1px solid #ddd !important; 
+}
+
+#summernote .note-editor .note-frame .card {
+    border: 2px solid red !important;
+    background-color: red;
+}
+
+.form-campaign {
+    margin-top: %;
+    background-color: white;
+    padding: 3%;
+    box-sizing: border-box;
+    font-size: 1em;
+    border-bottom-left-radius: 0.2em;
+    border-bottom-right-radius: 0.2em;
+
+}
+
+.form-konfirmasi {
+    margin-top: %;
+    background-color: white;
+    padding: 3%;
+    box-sizing: border-box;
+    font-size: 1em;
+    border--radius: 0.2em;
+
+}
+
+.table-light {
+    width: 100%;
+    border-collapse: none !important;
+    font-weight: 600;
+    font-size: 100%;    
+}
+
+table tbody tr {
+    text-align: right;
+    height: 2.5rem;
+}
+
+.bank {
+    margin-left: 0%;
+    border: none;
+}
+
+.card-title {
+    margin-bottom: 2%;
+    font-weight: bold;
+    font-size: 100%;    
+}
+
+
+.card-text {
+    margin-top: 2%;
+}

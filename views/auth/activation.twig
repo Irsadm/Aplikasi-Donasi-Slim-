@@ -1,0 +1,16 @@
+{% include 'templates/default.twig' %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{{ base_url()}}/css/login.css">
+{% endblock %}
+{% block content %}
+    <div class="wrapper">
+    <form class="form-signin">
+      <h4 class="form-signin-heading "><b>Akun Anda telah aktif</b></h4>
+      <div class="text-center">
+        <p style="text-align:left">Silakan <a href="{{path_for('login')}}" style="font-weight:bold">login</a> dengan email <b>{{ email }}</b> dan password yang telah anda tentukan  </p>
+      </div>
+
+      </div>
+    </form>
+  </div>
+{% endblock %}

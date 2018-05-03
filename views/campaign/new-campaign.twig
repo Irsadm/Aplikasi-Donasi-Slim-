@@ -1,0 +1,170 @@
+{% extends 'templates/default.twig' %}
+
+{% block css %} <link rel="stylesheet" href="{{ base_url()}}/css/new-campaign.css"> {% endblock %}
+{% block title %} Campaign Baru {% endblock %}
+
+{% block content %}
+<div class="container">
+
+  <div class="row justify-content-md-center body-donasi">
+     <div class="col-lg-10 donasi-col">
+        <div class="breadcrumb top"></div>
+
+          <form class="form-campaign" method="post"  action="{{ path_for('post-new-campaign')}}" enctype="multipart/form-data">
+            <div class="form-group row justify-content-md-center">
+            <br/>
+            </div>
+
+            <div class="form-group row justify-content-md-center">
+              <label for="staticEmail" class="col-lg-3 col-form-label ">JUDUL CAMPAIGN</label>
+                <div class="col-lg-8">
+                  <input type="text"  value="{{ old.title}}" name="title" autofocus class="form-control" id="staticEmail" >
+                    {% if errors.title %}
+                    <span style="color:#76323f; font-weight:normal; font-size:15px; text-align: left;" class="help-inline text-center">{{  errors.title | first}}
+                    </span>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="form-group row justify-content-md-center">
+              <label for="staticEmail" class="col-lg-3 col-form-label ">TARGET DANA</label>
+                <div class="col-lg-8">
+                  <div class="input-group mb-2 mb-sm-0">
+                    <div class="input-group-addon">Rp</div>
+                      <input type="text"  value="{{ old.target_dana}}" name="target_dana" 
+                        class="form-control form-control-lg" id="staticEmail" placeholder="0">
+                    </div>
+                        {% if errors.target_dana %}
+                          <span style="color:#76323f; font-weight:normal; font-size:15px; text-align:left;" class="help-inline text-left"> {{  errors.target_dana | first}}
+                          </span>
+                        {% endif %}
+                    </div>
+            </div>
+
+            <div class="form-group row justify-content-md-center">
+              <label for="staticEmail" class="col-lg-3 col-form-label ">DEADLINE CAMPAIGN</label>
+                <div class="col-lg-8">
+                  <input type="date"  name="deadline" value="{{ old.deadline }}"  class="form-control" id="staticEmail" >
+                  {% if errors.deadline %}
+                    <span style="color:#76323f; font-weight:normal; font-size:15px; text-align: left;" class="help-inline text-center">
+                    {{  errors.deadline | first}}
+                    </span>
+                  {% endif %}
+                </div>
+            </div>
+
+            <div class="form-group row justify-content-md-center">
+              <label for="staticEmail" class="col-lg-3 col-form-label ">KATEGORI</label>
+               <div class="col-lg-8">
+                 <select class="form-control" name="category_id" id="exampleFormControlSelect2">
+                   <option name="category_id" value="{{ old.category_id }}">PILIH KATEGORI</option>
+                     {% for category in category %}
+                        <option name="category_id" value="{{ category.id }}">{{ category.category }}</option>
+                     {% endfor %}
+                 </select>
+                  {% if errors.category_id %}
+                    <span style="color:#76323f; font-weight:normal; font-size:15px; text-align: left;" class="help-inline text-center">
+                     {{  errors.category_id | first}}
+                    </span>
+                  {% endif %}
+               </div>
+            </div>
+
+            <div class="form-group row justify-content-md-center">
+              <label for="staticEmail" class="col-lg-3 col-form-label ">LOKASI PENERIMA</label>
+                <div class="col-lg-8">
+                   <select class="form-control" name="lokasi_penerima" id="exampleFormControlSelect2">
+                     <option   value="{{ null }}">PILIH LOKASI</option>
+                     {% if old.lokasi_penerima != null %}
+                          <option  value="{{ lokasi_penerima }}" selected >{{ location.kota_kabupaten }}</option>
+                     {% endif %}
+                       {% for location in location %}
+                          <option  value="{{ location.id }}">{{ location.kota_kabupaten }}</option>
+                       {% endfor %}
+                     </select>
+                      {% if errors.lokasi_penerima %}
+                         <span style="color:#76323f; font-weight:normal; font-size:15px; text-align: left;" class="help-inline text-center">
+                         {{  errors.lokasi_penerima | first}}
+                         </span>
+                      {% endif %}
+                 </div>
+             </div>
+
+            <div class="form-group row justify-content-md-center">
+              <label for="staticEmail" class="col-lg-3 col-form-label ">DESKRIPSI SINGKAT</label>
+                <div class="col-lg-8">
+                  <textarea name="deskripsi_singkat" id="" value="{{ old.deskripsi_singkat }}"  class="form-control"  style="width:100%" rows="4"></textarea>
+                    {% if errors.deskripsi_singkat %}
+                     <span style="color:#76323f; font-weight:normal; font-size:15px; text-align: left;" class="help-inline text-center">
+                    {{  errors.deskripsi_singkat | first}}
+                     </span>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="form-group row justify-content-md-center">
+              <label for="staticEmail" class="col-lg-3 col-form-label ">DESKRIPSI LENGKAP</label>
+                <div class="col-lg-8">
+                  <textarea type="text" id="summernote" value="{{ old.deskripsi_lengkap }}"  name="deskripsi_lengkap" class="form-control" ></textarea>
+                   {% if errors.deskripsi_lengkap %}
+                     <span style="color:#76323f; font-weight:normal; font-size:15px; text-align: left;" class="help-inline text-center">
+                     {{  errors.deskripsi_lengkap | first}}
+                     </span>
+                   {% endif %}
+                </div>
+            </div>
+
+            <div class="form-group row justify-content-md-center">
+              <label for="staticEmail" class="col-lg-3 col-form-label ">GAMBAR SAMPUL</label>
+                <div class="col-lg-8">
+                  <label for="file" style="width:100%">
+                  <img  id="image" src="{{ base_url()}}/assets/images/thumbnail.png" alt="GAMBAR SAMPUL"  style="width:100%" class="img-thumbnail">
+                  </label>
+                    <input type="file" class="form-control" name="image" style="visibility:hidden;" id="file" >
+                    {% if errors.cover %}
+                     <span style="color:#76323f; font-weight:normal; font-size:15px; text-align: left;" class="help-inline text-center">
+                     {{  errors.cover | first}}
+                     </span>
+                     {% endif %}
+                 </div>
+            </div>
+
+            <div class="form-group row justify-content-md-center">
+              <div class="col-lg-11 custom-checkbox">
+                 <input class="form-check-input" required type="checkbox">
+                  <span class="text-checkbox">Saya setuju dengan Syarat & Ketentuan Campaign di do-donasi.com, termasuk biaya administrasi platform sebesar 5% dari total donasi online yang terkumpul.</span>
+              </div>
+            </div> 
+
+            <input type="hidden" name="user_id" value="{{ login.id }}">
+
+            <div class="form-group row  justify-content-end">
+              <div class="col-lg-2" style="margin-top: %; margin-right: 4%">
+                <button class="form-control btn-lanjut" name="submit" type="submit">LANJUT</button>
+              </div>
+            </div>
+      </form>
+    </div>
+  </div>
+</div>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="{{ base_url()}}/js/jquery.masknumber.js"></script>
+
+<script type="text/javascript" >
+  document.getElementById("file").onchange = function () {
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      document.getElementById("image").src = e.target.result;
+    }
+    reader.readAsDataURL(this.files[0]);
+}
+
+</script>
+
+<script type="text/javascript">
+        $(document).ready(function ($) {
+
+            $('[name=target_dana]').maskNumber({thousands: '.', integer: true});
+        });
+  </script>
+{% endblock %}

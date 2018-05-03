@@ -1,0 +1,22 @@
+.breadcrumb {
+    background-color: #76323f    ;
+    border-radius: none;
+    height: 3rem;
+    /*width: 90%;*/
+}
+
+.campaign-header {
+    background-color: #c09f80
+    /*width:;*/
+    /*text*/
+
+}
+.campaign-header-text {
+    text-transform: uppercase;
+    color: #565656;
+    font-weight: bold;  
+    font-size: 100%;
+    
+}
+
+

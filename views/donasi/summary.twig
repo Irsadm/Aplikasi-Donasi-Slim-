@@ -1,0 +1,62 @@
+{% extends 'templates/default.twig' %}
+{% block title %}SUMMARY{% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="{{ base_url()}}/css/donasi.css">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-lg-8 donasi-col">
+        <div class="judul-donasi ">
+            <span> {{ data.title}} </span>        
+        </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-md-center body-donasi">
+     <div class="col-lg-8 donasi-col">
+            <div class="card" style="width: 100%;">
+              <div class="card-body">
+               <table class="table-light" style="border: none">
+                <tbody>
+                  <tr>
+                    <th scope="col" >ID DONASI</th>
+                    <td></td>
+                    <td class="text-right">{{ data.code }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="col">NOMINAL</th>
+                    <td></td>
+                    <td class="text-right">{{ data.nominal }}</td>
+                  </tr>
+<!--                   <tr>
+                    <th scope="col">KODE UNIK</th>
+                    <td>Rp</td>
+                    <td class="text-right">123</td>
+                  </tr>
+                  <tr style="font-weight: bold; font-size: 140%; border-top: 0.04em solid black">
+                    <th scope="col">TOTAL</th>
+                    <td>Rp </td>
+                    <td class="text-right">1000000</td>
+                  </tr> -->
+                </tbody>
+              </table>
+              </div>
+              <div class="card bank" style="width: 100%;">
+                <div class="card-title">SILAKAN TRANSFER TEPAT {{ data.nominal }} KE:</div>
+                <img class="img-fluid" style="width: 30%" src="{{ base_url()}}/assets/images/syariah-mandiri.png" alt="syariah-mandiri">
+                <!-- <div class="card-body"> -->
+                  <p class="card-text">Cabang: Kotagede Yogyakarta <br> No Rekening: 109 000 110 89004 <br>Atas nama: MIT SCHOOL YK</p>
+                <div class="card-text2">Pastikan Anda transfer sebelum <b>{{ data.batas_transfer }} </b> atau donasi Anda otomatis dibatalkan oleh sistem.</div>
+                <!-- </div> -->
+              </div>
+            </div>
+      
+
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+.campaign-dash {
+    margin-top: 1%;
+    font-weight: bold;
+    text-transform:  uppercase;
+    color: #76323f;
+    font-size: 2rem;
+}
+
+.campaign-tag {
+    margin-top: 1%;
+    font-size: 0.9rem;
+    color: #565656;
+}
+
+ul > li> .dashboard-link {
+    font-size: 1em;
+    color: #c09f80;
+    font-weight: 600;
+}
+
+ul > li> .dashboard-link:hover {
+    font-size: 1em;
+    color: white;
+}
+
+.table-donasi {
+    width: 40% !important;
+}

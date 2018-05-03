@@ -1,0 +1,82 @@
+.breadcrumb {
+    background-color: #76323f    ;
+    border-radius: none;
+    border-bottom-right-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    height: 3rem;
+    /*width: 90%;*/
+}
+
+.ringkasan-row {
+    background-color:white;
+    margin-left: 0.01%;
+    margin-top: -1.5%;
+    margin-bottom: 2.5%;
+    padding: 0.6%;
+    border-bottom-right-radius: 0.2em !important;
+    border-bottom-left-radius: 0.2em !important;
+    width:100%
+}
+
+.ringkasan-col {
+    padding: 1.4%;
+    color: #76323f;
+    font-size: 120%;
+    font-weight: 560;
+    /*text-transform: uppercase;*/
+}
+
+.ringkasan-header {
+    color: #76323f;
+    font-weight: 600;
+    font-size: 220%;
+    /*width:;*/
+    /*text*/
+
+}
+.ringkasan-small {
+    text-transform: uppercase;
+    color: #565656;
+    font-weight: bold;  
+    font-size: 100%;
+}
+
+.ringkasan-dana {
+    margin-left: 2%;
+    margin-top: 3%;
+    text-transform: uppercase;
+    color: white;
+    font-weight: 500;  
+    font-size: 140%;
+    width: 96%;
+}
+
+.tabel-donasi tr th {
+    border-top: none;
+}
+
+.tabel-donasi  tr th {
+    background-color: white;
+    color: #76323f;
+
+
+}
+
+.tabel-donasi  tr  td {
+    text-transform: capitalize;
+    font-weight: 540;
+    color: #565656;
+
+}
+
+.donasi-link a {
+    text-decoration: none;
+    color: #565656;
+}
+
+.donasi-link a:hover {
+    text-decoration: none;
+    color: #76323f;
+    font-weight: 540;
+}
+

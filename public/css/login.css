@@ -1,0 +1,88 @@
+/*body {
+  background: #eee !important;
+}
+*/
+.wrapper {
+  margin-top: 80px;
+  margin-bottom: 80px;
+
+}
+
+.form-signin {
+  max-width: 380px;
+  padding: 15px 35px 45px;
+  margin: 0 auto;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #76323f;
+  font-weight: bold;
+  /*box-shadow: 5px 4px 4px #888888;*/
+  border-radius: 0.2em;  
+}
+.form-signin .form-signin-heading {
+  /*background-color: #565656;;
+  /*margin-top: -1rem;*/
+  height: 4rem;
+  width: 100%;
+  font-weight:bold;
+  color:#76323f;
+}
+
+.do-donasi {
+  margin-top: 2rem;
+
+}
+
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 30px;
+
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 20px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.btn-masuk {
+    background-color: #76323f;
+    border-radius: 0.2em;
+    height: 2.8rem;
+    width:100%;
+    border:none;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+
+}
+
+.btn-masuk:hover {
+    background-color: white;
+    border-radius: 0.2em;
+    height: 2.8rem;
+    width:100%;
+    border:0.1em solid #76323f;;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    color:#76323f !important;
+
+}
+
