@@ -17,9 +17,9 @@ environments:
     development:
         adapter: mysql
         host: localhost
-        name: donasi_db
-        user: root
-        pass: '13136767'
+        name: mit_donasi
+        user: mit
+        pass: 'B8khzHNy'
         port: 3306
         charset: utf8
 
