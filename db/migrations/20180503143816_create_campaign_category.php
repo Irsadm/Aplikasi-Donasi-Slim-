@@ -2,7 +2,7 @@
 
 use Phinx\Migration\AbstractMigration;
 
-class CreateTokenTable extends AbstractMigration
+class CreateCampaignCategory extends AbstractMigration
 {
     /**
      * Change Method.
@@ -27,12 +27,9 @@ class CreateTokenTable extends AbstractMigration
      */
     public function change()
     {
-        $token = $this->table('tokens');
-        $token->addColumn('user_id', 'integer')
-              ->addColumn('token', 'string')
-              ->addColumn('login_at', 'datetime')
-              ->addColumn('expired_date', 'datetime')
-              ->addForeignKey('user_id', 'users', 'id', ['delete' => 'CASCADE', 'update' => 'NO_ACTION'])
-              ->create();
+        $category = $this->table('campaign_category');
+        $category->addColumn('category', 'string')
+                 ->addColumn('created_at', 'timestamp', ['default' => 'CURRENT_TIMESTAMP'])
+                 ->create();
     }
 }
