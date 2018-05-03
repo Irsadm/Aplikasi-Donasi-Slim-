@@ -30,6 +30,7 @@ class CreateDonasiTable extends AbstractMigration
         $donasi = $this->table('donasi');
         $donasi->addColumn('campaign_id', 'integer', ['null' => true])
                ->addColumn('user_id', 'integer', ['null' => true])
+               ->addColumn('code', 'string', ['null' => true])
                ->addColumn('nominal', 'integer', ['null' => true])
                ->addColumn('komentar', 'string', ['null' => true])
                ->addColumn('status', 'integer', ['default' => 0,])

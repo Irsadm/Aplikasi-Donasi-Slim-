@@ -2,7 +2,7 @@
 
 use Phinx\Migration\AbstractMigration;
 
-class CreateCampaignTable extends AbstractMigration
+class CreateCampaignsTable extends AbstractMigration
 {
     /**
      * Change Method.

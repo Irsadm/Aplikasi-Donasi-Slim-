@@ -2,7 +2,7 @@
 
 use Phinx\Migration\AbstractMigration;
 
-class CretateRegisterTable extends AbstractMigration
+class CreatePaymentsTable extends AbstractMigration
 {
     /**
      * Change Method.
@@ -27,12 +27,13 @@ class CretateRegisterTable extends AbstractMigration
      */
     public function change()
     {
-            $register = $this->table('registers');
-        $register->addColumn('user_id', 'integer')
-                          ->addColumn('token', 'string')
-                          ->addColumn('status', 'integer', ['limit' => 1, 'default' => 0])
-                          ->addColumn('expired_date', 'datetime')
-                          ->addForeignKey('user_id', 'users', 'id', ['update' => 'CASCADE', 'delete' => 'NO_ACTION'])
-                          ->create();
+        $payment = $this->table('payments');
+        $payment->addColumn('donasi_id', 'integer')
+                ->addColumn('bank_id', 'integer')
+                ->addColumn('image', 'string', ['null' => true])
+                ->addColumn('status', 'integer', ['default' => 0])
+                ->addColumn('created_at', 'timestamp', ['default' => 'CURRENT_TIMESTAMP'])
+                ->addColumn('updated_at', 'datetime', ['null' => true])
+                ->create();
     }
 }
