@@ -240,8 +240,9 @@ class CampaignController extends BaseController
     {
         $campaign = new Campaign($this->db);
         $id = $args['id'];
-
+        $data = [];
         $data['data'] = $campaign->getById($id);
+        $data['pagination'] = null;
         // var_dump($data); die();
         if (!empty($data['data'])) {
             return $this->responseDetail(200, false, 'Data ditemukan', $data);

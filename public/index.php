@@ -16,5 +16,5 @@ require __DIR__ . '/../app/bootstrap.php';
 // include __DIR__ . '/../app/routing.php';
 
 
-// var_dump($container);
+// var_dump($container->client); die();
 $app->run();

@@ -9,7 +9,7 @@ class Mailer
         // create the transport
         $transport = (new \Swift_SmtpTransport('smtp.gmail.com', 587, 'tls'))
                     ->setUsername('donasiapp@gmail.com')
-                    ->setPassword('generasi3');
+                    ->setPassword('zlbuvyywoxewfppa');
         // create the mailer
         $mailer = new \Swift_Mailer($transport);
 

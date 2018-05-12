@@ -60,16 +60,17 @@ class CampaignController extends BaseController
             // var_dump($don); die();
 
         }
+            $subNom = [];
             $c = count($don);
             for ($i = 0; $i < $c; $i++ ) {
-            foreach ($don[$i]['data'] as  $value2) {
+            foreach ((array)$don[$i]['data'] as  $value2) {
                 $valu    = $value2['nominal'];
                 $subNom[$i] += $valu;
                 $campaignId = $value2['campaign_id'];
                 $campaigns[$i] = $campaignId;
                 }
                 $don[$i]['data']['total_donasi'] = $subNom[$i];
-              // var_dump($don[0]['data']); die();
+              // var_dump($valu); die();
               $co = count($data['data']);
                 for ($a = 0; $a < $co; $a++)  {
                     $dataFinal[$a] = $data['data'][$a];
@@ -186,10 +187,11 @@ class CampaignController extends BaseController
         }
 
         $data = json_decode($result->getBody()->getContents(), true);
+        var_dump($data); die();
 
         // donatur campaign
         try {
-            $result = $this->client->request('GET', 'donasi/campaign/' .$data['data']['id'] . '/approved');
+            $result = $this->client->request('GET', 'donasi/campaign/' .$data['data']['id'] .'/approved');
         } catch (GuzzleException $e) {
             $result = $e->getResponse();
         }
@@ -277,6 +279,10 @@ class CampaignController extends BaseController
         }
 
         $data = json_decode($result->getBody()->getContents(), true);
+        // if (empty($data['data'])) {
+        //     $data['data'] = [];
+        // }
+        // var_dump($data); die();
         foreach ($data['data'] as $key => $value) {
             $today = new \DateTime(date('Y-m-d H:i:s'));
             $deadline = new \DateTime($value['deadline']);
